@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lofi-cafe</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="coffee and lofi | let's study">
+		<link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="assets/favi.svg">
+		<script type="module" src="script.js"></script>
+		<script src="https://kit.fontawesome.com/89e5948346.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+    <body>
+        <div class="cafe no-select"></div>
+        <div class="sound-effect-container no-select">
+            <button id="cafe-btn" class="btn"><img src="assets/cafe.svg" width="100vw" height="100vw" draggable="false"></button>
+            <button id="fire-btn" class="btn"><img src="assets/fire.svg" width="100vw" height="100vw" draggable="false"></i></button>
+            <button id="rain-btn" class="btn"><img src="assets/rain.svg" width="100vw" height="100vw" draggable="false"></i></button>
+        </div>
+        
+        <audio src="assets/cafe_sound.mp3" id="cafe-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
+        <audio src="assets/fire_sound.mp3" id="fire-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
+        <audio src="assets/rain_sound.mp3" id="rain-sound" preload="auto" loop>Your browser does not support the audio element.</audio>
+
+        <script>
+            $(document).ready(function() {
+                var cafe_playing = false;
+                var fire_playing = false;
+                var rain_playing = false;
+
+                var cafe = document.getElementById("cafe-sound");
+                var fire = document.getElementById("fire-sound");
+                var rain = document.getElementById("rain-sound");
+
+                cafe.volume = 0.8;
+                fire.volume - 0.8;
+                rain.volume = 0.8;
+
+                $('#cafe-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (cafe_playing == false) {
+                        cafe.play();
+                        cafe_playing = true;
+
+                    } else {
+                        cafe.pause();
+                        cafe_playing = false;
+                    }
+                });
+
+                $('#fire-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (fire_playing == false) {
+                        fire.play();
+                        fire_playing = true;
+
+                    } else {
+                        fire.pause();
+                        fire_playing = false;
+                    }
+                });
+
+                $('#rain-btn').click(function() {
+                    $(this).toggleClass("down");
+
+                    if (rain_playing == false) {
+                        rain.play();
+                        rain_playing = true;
+
+                    } else {
+                        rain.pause();
+                        rain_playing = false;
+                    }
+                });
+            });
+        </script>
+
+        <div class="music-container" id="music-container">
+            <div class="music-info">
+              <h4 id="title"></h4>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+      
+            <audio src="assets/lofi/afternoon homework.mp3" id="audio"></audio>
+      
+            <div class="img-container">
+              <img src="assets/cover.png" alt="music-cover" id="cover" draggable="false"/>
+            </div>
+            <div class="navigation">
+              <button id="prev" class="action-btn"><i class="fas fa-backward"></i></button>
+              <button id="play" class="action-btn action-btn-big"><i class="fas fa-play"></i></button>
+              <button id="next" class="action-btn"><i class="fas fa-forward"></i></button>
+            </div>
+          </div>
+      
+          <script src="script.js"></script>
+        </body>
+</html>
